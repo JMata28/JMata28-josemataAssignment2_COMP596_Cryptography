@@ -47,7 +47,11 @@ while l <= 255:
 j = 0
 l = 1
 keystream = []
-plaintext = "success"
+plaintext = input("Please enter your plaintext: ")
+'''
+    If you'd like to try a plaintext hard-coded into this .py file, please replace line 50 with this line of code:
+    plaintext = "thisismysupersecretplaintext"
+'''
 print("The plaintext BEFORE ENCRYPTION is: ", plaintext)
 while l <= len(plaintext):
     j = (j + S[l])%256
@@ -65,7 +69,7 @@ print("The original plaintext in decimal notation BEFORE ENCRYPTION is: ", plain
 cyphertext = []
 y = 0 
 while y < len(plaintextinascii):
-    cyphertext.append(plaintextinascii[y] ^ keystream[y])
+    cyphertext.append(plaintextinascii[y] ^ keystream[y])   #The "^" sign does the XOR operation
     y = y + 1
 print("The cypher text in decimal notation is: ", cyphertext)
 
@@ -73,7 +77,7 @@ print("The cypher text in decimal notation is: ", cyphertext)
 decryptedplaintext = []
 y = 0 
 while y < len(cyphertext):
-    decryptedplaintext.append(cyphertext[y] ^ keystream[y])
+    decryptedplaintext.append(cyphertext[y] ^ keystream[y]) #The "^" sign does the XOR operation
     y = y + 1
 print("The plaintext in decimal notation AFTER DECRYPTION is: ", decryptedplaintext)
 finalplaintext = "" 
